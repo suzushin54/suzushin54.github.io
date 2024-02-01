@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style: none;
+    background-color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+header {
+    background: #f8f8f8;
+    padding: 20px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+main {
+    padding: 40px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+#about {
+    margin-bottom: 40px;
+}
+
+#about h1 {
+    font-size: 2.5em;
+}
+
+.experience h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.skills {
+    margin-bottom: 40px;
+}
+
+.skills h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills ul li {
+    display: inline-block;
+    margin: 5px 10px;
+    padding: 5px 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* レスポンシブデザインのためのメディアクエリ */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0;
+    }
+
+    .skills ul li {
+        display: block;
+        margin: 5px 0;
+    }
+}

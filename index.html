@@ -1,31 +1,85 @@
-<!-- index.html -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- manifest.jsonを呼び出しています -->
-  <link rel="manifest" href="./manifest.json">
-  <script>
-    // service workerが有効なら、service-worker.js を登録します
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./service-worker.js').then(function() { console.log('Service Worker Registered'); });
-   }
-  </script>
-  <title>Hello PWA.</title>
-  <style>
-    body {
-      text-align:center;
-      font-size: 40px;
-      vertical-align: middle;
-    }
-    .image {
-      width: 80%; 
-      margin: auto;
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/htmx.org"></script>
 </head>
 <body>
-  <h1>Hello PWA.</h1>
-  <img src="./pwa-logo.svg" alt="PWA logo" class="image" />
-  <a href="p.html">p.html</a>
+<header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="about">
+        <h1>About Me</h1>
+        <p>I am Shinichiro Mikami, Software Engineer from Tokyo, Japan.</p>
+        <p>[Short bio or introduction]</p>
+
+        <div class="experience">
+            <h2>Experience</h2>
+            <p>[Experience details]</p>
+        </div>
+
+        <div class="skills">
+            <h2>What Skill I Have</h2>
+            <ul>
+                <li>Go</li>
+                <li>PHP</li>
+                <li>C#</li>
+                <li>TypeScript</li>
+            </ul>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact Me!</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="button" hx-post="#" hx-swap="outerHTML" hx-target="#form-response" hx-trigger="click"
+                    onclick="updateDiv()">Send
+            </button>
+        </form>
+        <div id="form-response"></div>
+    </section>
+
+    <script src="https://unpkg.com/htmx.org"></script>
+    <script>
+        function updateDiv() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+            var responseHTML = '<p>Name: ' + name + '</p>' +
+                '<p>Email: ' + email + '</p>' +
+                '<p>Message: ' + message + '</p>';
+
+            // Update the div with the form data using htmx
+            htmx.find('#form-response').innerHTML = responseHTML;
+        }
+    </script>
+
+</main>
+
+<footer>
+    <a href="https://linkedin.com">LinkedIn</a>
+</footer>
 </body>
 </html>
