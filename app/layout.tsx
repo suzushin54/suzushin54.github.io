@@ -18,6 +18,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${profile.name} — ${profile.titleEn}`,
   description: profile.oneLiner,
+  // 検索エンジンに拾わせない(リンクを知っている人だけが辿り着く想定)。robots.txt と合わせて指定
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
 }
 
 export const viewport: Viewport = {
