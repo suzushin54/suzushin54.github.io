@@ -33,7 +33,8 @@
   "pnpm": {
     "overrides": {
       "hono": "4.12.25",
-      "postcss": ">=8.5.10"
+      "postcss": ">=8.5.10",
+      "js-yaml": "^4.3.0"
     }
   },
   "packageManager": "pnpm@10.22.0"
